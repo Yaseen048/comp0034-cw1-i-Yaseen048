@@ -13,3 +13,21 @@ df = pd.read_csv("Prepared_dataset.csv", dtype = {'Weekend Gross': int,
 "Weeks on release": int})
 
 fig = px.bar(df, x = "Film", y = "Weekend Gross", color = "Date")
+
+
+
+app.layout = html.Div(children=[
+    html.H1(children='Cinema Dashboard'),
+
+    html.Div(children='''
+        A dashbaord about how cinemas before, during and after lockdowns in the UK.
+    '''),
+
+    dcc.Graph(
+        id='Weekend gross graph',
+        figure=fig
+    )
+])
+
+if __name__ == '__main__':
+    app.run_server(debug=True)
