@@ -13,7 +13,7 @@ df = pd.read_csv("Prepared_dataset.csv", dtype = {'Weekend Gross': int,
 "Weeks on release": int})
 
 fig = px.bar(df, x = "Film", y = "Weekend Gross", color = "Date")
-
+fig2 = px.pie(df,names= "Distributor" )
 
 
 app.layout = html.Div(children=[
