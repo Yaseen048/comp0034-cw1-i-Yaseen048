@@ -20,12 +20,17 @@ app.layout = html.Div(children=[
     html.H1(children='Cinema Dashboard'),
 
     html.Div(children='''
-        A dashbaord about how cinemas before, during and after lockdowns in the UK.
+        A dashbaord about cinemas before, during and after lockdowns in the UK.
     '''),
 
     dcc.Graph(
         id='Weekend gross graph',
         figure=fig
+    ),
+
+    dcc.Graph(
+        id = 'Distributor',
+        figure= fig2
     )
 ])
 
