@@ -49,11 +49,20 @@ The target audience for this dash app are cinema CEOs to help them understand ho
 The dashboard is intended to address the following questions:
 - How were sales of movies in cinemas affected due to covid-19?
 - How was the release of movies affected due to covid-19?
-- What movie distributors were affected due to covid-19?
+- What were the main movie distributors of films in cinemas during the pandemic?
 
 
-## Visualtaion design
+## Visualisation design
 
+The target audience (cinema CEOs) should have alot of experinece dealing with statistics and graphs as part of theier job is to make big decisions which are often supported by data. Because of this, most CEOs should be able to understand most types of graphs.
+
+The following questions above will be addressed by a bar chart, histogram and pie chart respectivley which cinema CEOs should be comfortable with seeing.
+
+The first question addresses sales of movies and is represensted by a bar chart. I have chosen a bar chart due to its simplicty. The bar chart only tells you how much money was made from a movie which is sufficient to give cinema CEOs an undertsanding of the general perfomance of films in cinemas at a given time. No additional information is needed as the questions is about how much money was made and not why.
+
+The second questions addresses the release of movies in cinemas and is representated by a histogram. This type of chart was chosen beacuse it is easy to look at (comparable to a bar chart) but addresses slighlty more information. The bar chart focuses mainly on one variable (sales - weekend gross) but to answer the second question we need to look at how long the since the movies were orignally released and how many of the movies were new. To do this we define new movies as movies that were released within 3 months, recent movies as movies released between 3 and 12 months, and old movies as movies released over 12 months ago. A histogram helps depict this as the new, recent and old movies can be represented by different class size on the histogram. 
+
+The final questions addresses the main movie distributors. This means we take a look at who dominated the movie industry. To show this, a pie chart makes easy to show what portion of films at a given time in cinema were made by a movie distributor. 
 
 
 
