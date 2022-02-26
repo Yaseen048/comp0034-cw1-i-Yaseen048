@@ -42,3 +42,19 @@ To set up your project:
 
 Remove the instruction text above and complete this README.md using the guidance in the coursework specification.
 
+## Target audience and questions
+
+The target audience for this dash app are cinema CEOs to help them understand how cinemas and the movie industry were affected due to covid-19 in the UK.
+
+The dashboard is intended to address the following questions:
+- How were sales of movies in cinemas affected due to covid-19?
+- How was the release of movies affected due to covid-19?
+- What movie distributors were affected due to covid-19?
+
+
+## Visualtaion design
+
+
+
+
+## Evaluation
