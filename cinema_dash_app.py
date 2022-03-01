@@ -45,9 +45,9 @@ app.layout = html.Div(children=[
 ])
 
 @app.callback(
-    [Output(component_id= 'Weekend gross graph', component_property= 'fig'),
-    Output(component_id= 'Distributor', component_property= 'fig2'),
-    Output(component_id= 'Weeks on releas', component_property= 'fig3')],
+    [Output(component_id= 'Weekend gross graph', component_property= 'graph1'),
+    Output(component_id= 'Distributor', component_property= 'graph2'),
+    Output(component_id= 'Weeks on release', component_property= 'graph3')],
     Input(component_id= 'Select date', component_property='value')
 )
 
