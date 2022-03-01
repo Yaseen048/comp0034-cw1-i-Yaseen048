@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 from dash import dcc
 from dash import html
+from dash import Input, Output
 
 external_stylesheets = [dbc.themes.BOOTSTRAP]
 
@@ -23,6 +24,15 @@ app.layout = html.Div(children=[
         A dashbaord about cinemas before, during and after lockdowns in the UK.
     '''),
 
+    dcc.Dropdown(id = "Select date",
+                options = [
+                    {"label": "March 2020", 'value': 'Mar-20'},
+                    {"label": "August 2020", 'value': 'Aug-20'},
+                    {"label": "July 2021", 'value': 'Jul-21'},
+                ],
+                value = 'Mar-20'
+                ),
+                
     dcc.Graph(
         id='Weekend gross graph',
         figure=fig
@@ -38,6 +48,10 @@ app.layout = html.Div(children=[
         figure= fig3
     )
 ])
+
+@app.callback(
+    Output(component_id=)
+)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
