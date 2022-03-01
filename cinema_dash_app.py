@@ -25,7 +25,7 @@ app.layout = html.Div(children=[
     dcc.Dropdown(id = "Select date",
                 options = [
                     {"label": "March 2020", 'value': 'March 2020'},
-                    {"label": "August 2020", 'value': 'August 2020'},
+                    {"label": "August 2020", 'value': 'Aug 2020'},
                     {"label": "July 2021", 'value': 'July 2021'},
                 ],
                 value = 'March 2020'
