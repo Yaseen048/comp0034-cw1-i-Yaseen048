@@ -28,7 +28,7 @@ app.layout = html.Div(children=[
                     {"label": "August 2020", 'value': 'August 2020'},
                     {"label": "July 2021", 'value': 'July 2021'},
                 ],
-                value = 'Mar-20'
+                value = 'March 2020'
                 ),
 
     dcc.Graph(
@@ -45,15 +45,15 @@ app.layout = html.Div(children=[
 ])
 
 @app.callback(
-    [Output(component_id= 'Weekend gross graph', component_property= 'graph1'),
-    Output(component_id= 'Distributor', component_property= 'graph2'),
-    Output(component_id= 'Weeks on release', component_property= 'graph3')],
+    [Output(component_id= 'Weekend gross graph', component_property= 'figure'),
+    Output(component_id= 'Distributor', component_property= 'figure'),
+    Output(component_id= 'Weeks on release', component_property= 'figure')],
     Input(component_id= 'Select date', component_property='value')
 )
 
 def update_output(date):
 
-    updated_df = df[df["Date"] == "date"]
+    updated_df = df[df["Date"] == date]
 
     fig = px.bar(updated_df, x = "Film", y = "Weekend Gross")
     fig2 = px.pie(updated_df,names= "Distributor" )
