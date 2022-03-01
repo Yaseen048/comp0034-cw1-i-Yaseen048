@@ -12,9 +12,9 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 df = pd.read_csv("Prepared_dataset.csv", dtype = {'Weekend Gross': int,
 "Weeks on release": int})
 
-fig = px.bar(df, x = "Film", y = "Weekend Gross", color = "Date")
-fig2 = px.pie(df,names= "Distributor" )
-
+fig = px.bar(df[df["Date"] == "March 2020"], x = "Film", y = "Weekend Gross")
+fig2 = px.pie(df[df["Date"] == "March 2020"],names= "Distributor" )
+fig3 = px.histogram(df[df["Date"] == "March 2020"], x = "Weeks on release", nbins=10)
 
 app.layout = html.Div(children=[
     html.H1(children='Cinema Dashboard'),
@@ -31,6 +31,11 @@ app.layout = html.Div(children=[
     dcc.Graph(
         id = 'Distributor',
         figure= fig2
+    ),
+
+    dcc.Graph(
+        id = 'Weeks on release',
+        figure= fig3
     )
 ])
 
