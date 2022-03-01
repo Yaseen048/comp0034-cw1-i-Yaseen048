@@ -13,9 +13,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 df = pd.read_csv("Prepared_dataset.csv", dtype = {'Weekend Gross': int,
 "Weeks on release": int})
 
-fig = px.bar(df[df["Date"] == "March 2020"], x = "Film", y = "Weekend Gross")
-fig2 = px.pie(df[df["Date"] == "March 2020"],names= "Distributor" )
-fig3 = px.histogram(df[df["Date"] == "March 2020"], x = "Weeks on release", nbins=10)
+
 
 app.layout = html.Div(children=[
     html.H1(children='Cinema Dashboard'),
@@ -26,32 +24,42 @@ app.layout = html.Div(children=[
 
     dcc.Dropdown(id = "Select date",
                 options = [
-                    {"label": "March 2020", 'value': 'Mar-20'},
-                    {"label": "August 2020", 'value': 'Aug-20'},
-                    {"label": "July 2021", 'value': 'Jul-21'},
+                    {"label": "March 2020", 'value': 'March 2020'},
+                    {"label": "August 2020", 'value': 'August 2020'},
+                    {"label": "July 2021", 'value': 'July 2021'},
                 ],
                 value = 'Mar-20'
                 ),
-                
+
     dcc.Graph(
         id='Weekend gross graph',
-        figure=fig
     ),
 
     dcc.Graph(
         id = 'Distributor',
-        figure= fig2
     ),
 
     dcc.Graph(
         id = 'Weeks on release',
-        figure= fig3
     )
 ])
 
 @app.callback(
-    Output(component_id=)
+    [Output(component_id= 'Weekend gross graph', component_property= 'fig'),
+    Output(component_id= 'Distributor', component_property= 'fig2'),
+    Output(component_id= 'Weeks on releas', component_property= 'fig3')],
+    Input(component_id= 'Select date', component_property='value')
 )
+
+def update_output(date):
+
+    updated_df = df[df["Date"] == "date"]
+
+    fig = px.bar(updated_df, x = "Film", y = "Weekend Gross")
+    fig2 = px.pie(updated_df,names= "Distributor" )
+    fig3 = px.histogram(updated_df, x = "Weeks on release", nbins=10)
+    
+    return fig, fig2, fig3
 
 if __name__ == '__main__':
     app.run_server(debug=True)
