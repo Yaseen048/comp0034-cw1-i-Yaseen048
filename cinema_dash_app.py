@@ -28,7 +28,9 @@ app.layout = html.Div(children=[
                     {"label": "August 2020", 'value': 'Aug 2020'},
                     {"label": "July 2021", 'value': 'July 2021'},
                 ],
-                value = 'March 2020'
+                value = 'March 2020',
+                placeholder= "Select a date",
+                multi = True
                 ),
 
     dcc.Graph(
@@ -41,25 +43,38 @@ app.layout = html.Div(children=[
 
     dcc.Graph(
         id = 'Weeks on release',
-    )
+    ),
+
+    html.Div(children = "how many dates did you select?", id = "chosen dates")
 ])
 
 @app.callback(
     [Output(component_id= 'Weekend gross graph', component_property= 'figure'),
     Output(component_id= 'Distributor', component_property= 'figure'),
-    Output(component_id= 'Weeks on release', component_property= 'figure')],
+    Output(component_id= 'Weeks on release', component_property= 'figure'),
+    Output(component_id="chosen dates", component_property= 'children')],
     Input(component_id= 'Select date', component_property='value')
 )
 
 def update_output(date):
-
+        
     updated_df = df[df["Date"] == date]
 
     fig = px.bar(updated_df, x = "Film", y = "Weekend Gross")
     fig2 = px.pie(updated_df,names= "Distributor" )
     fig3 = px.histogram(updated_df, x = "Weeks on release", nbins=10)
+
+    if type(date) == str:
+
+        dates_selected = f"you have chosen one date {date}"
     
-    return fig, fig2, fig3
+        
+    else:
+        dates_selected = f"you have chosen mulitple dates: {date}"
+    
+    return fig, fig2, fig3, dates_selected
+
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
