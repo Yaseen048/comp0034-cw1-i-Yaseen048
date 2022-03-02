@@ -18,9 +18,16 @@ df = pd.read_csv("Prepared_dataset.csv", dtype = {'Weekend Gross': int,
 app.layout = html.Div(children=[
     html.H1(children='Cinema Dashboard'),
 
-    html.Div(children='''
-        A dashbaord about cinemas before, during and after lockdowns in the UK.
-    '''),
+    html.Br(),
+
+    html.Div([
+        html.H2(children = 'Brief discription'),
+        html.P('''This is dashbaord about how cinemas and the film industry
+        before, during and after lockdowns in the UK.'''),
+        
+    ]),
+    
+    html.Br(),
 
     dcc.Dropdown(id = "Select date",
                 options = [
@@ -33,26 +40,28 @@ app.layout = html.Div(children=[
                 multi = True
                 ),
 
+
     dcc.Graph(
         id='Weekend gross graph',
     ),
+
+    html.Br(),
 
     dcc.Graph(
         id = 'Distributor',
     ),
 
+    html.Br(),
+
     dcc.Graph(
         id = 'Weeks on release',
-    ),
-
-    html.Div(children = "how many dates did you select?", id = "chosen dates")
+    )
 ])
 
 @app.callback(
     [Output(component_id= 'Weekend gross graph', component_property= 'figure'),
     Output(component_id= 'Distributor', component_property= 'figure'),
-    Output(component_id= 'Weeks on release', component_property= 'figure'),
-    Output(component_id="chosen dates", component_property= 'children')],
+    Output(component_id= 'Weeks on release', component_property= 'figure')],
     Input(component_id= 'Select date', component_property='value')
 )
 
@@ -67,17 +76,8 @@ def update_output(date):
     fig = px.bar(updated_df, x = "Film", y = "Weekend Gross", color= "Date")
     fig2 = px.pie(updated_df,names= "Distributor" )
     fig3 = px.histogram(updated_df, x = "Weeks on release",color= "Date", nbins=10)
-
-    if type(date) == str:
-
-        dates_selected = f"you have chosen one date {date}"
     
-        
-    else:
-        dates_selected = f"you have chosen mulitple dates: {date}"
-
-    
-    return fig, fig2, fig3, dates_selected
+    return fig, fig2, fig3
 
 
 
