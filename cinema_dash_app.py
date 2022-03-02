@@ -57,12 +57,16 @@ app.layout = html.Div(children=[
 )
 
 def update_output(date):
-        
-    updated_df = df[df["Date"] == date[0]]
 
-    fig = px.bar(updated_df, x = "Film", y = "Weekend Gross")
+    data_input = []
+    for i in range(len(date)):
+        data_input.append(df[df["Date"] == date[i]])
+
+    updated_df = pd.concat(data_input)
+
+    fig = px.bar(updated_df, x = "Film", y = "Weekend Gross", color= "Date")
     fig2 = px.pie(updated_df,names= "Distributor" )
-    fig3 = px.histogram(updated_df, x = "Weeks on release", nbins=10)
+    fig3 = px.histogram(updated_df, x = "Weeks on release",color= "Date", nbins=10)
 
     if type(date) == str:
 
@@ -71,6 +75,7 @@ def update_output(date):
         
     else:
         dates_selected = f"you have chosen mulitple dates: {date}"
+
     
     return fig, fig2, fig3, dates_selected
 
