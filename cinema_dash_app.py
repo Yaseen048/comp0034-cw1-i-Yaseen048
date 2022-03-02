@@ -1,3 +1,4 @@
+from turtle import title
 import dash
 import dash_bootstrap_components as dbc
 import pandas as pd
@@ -66,16 +67,31 @@ app.layout = html.Div(children=[
 )
 
 def update_output(date):
+    """updates output (different charts) on dashboard based on user input
+    
+    args:
+        date (List): List that contains what months are selected by user
+    
+    return:
+        fig (figure): bar chart on weekend gross
+        fig2 (figure): pie chart on movie distributors
+        fig3 (figure): histogram on number of weeks since release of films shown in cinema"""
 
-    data_input = []
+    data_input = [] #List to later contain specific months data from dataframe
+    #add all required data chosen to list
     for i in range(len(date)):
         data_input.append(df[df["Date"] == date[i]])
 
+    #make new dataframe with only chosen months by merging data from list
     updated_df = pd.concat(data_input)
-
-    fig = px.bar(updated_df, x = "Film", y = "Weekend Gross", color= "Date")
-    fig2 = px.pie(updated_df,names= "Distributor" )
-    fig3 = px.histogram(updated_df, x = "Weeks on release",color= "Date", nbins=10)
+    
+    #make figures based on chosen months
+    fig = px.bar(updated_df, x = "Film", y = "Weekend Gross", color= "Date",
+    title = "Movie Weekened Gross")
+    fig2 = px.pie(updated_df,names= "Distributor",
+    title = "Percenatge of movie distributors with movies showing in cinema" )
+    fig3 = px.histogram(updated_df, x = "Weeks on release",color= "Date", nbins=10,
+    title = "Number of weeks since release of movies showing in cinema")
     
     return fig, fig2, fig3
 
