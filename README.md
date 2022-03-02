@@ -19,13 +19,13 @@ The target audience (cinema CEOs) should have alot of experinece dealing with st
 The following questions above will be addressed by a bar chart, histogram and pie chart respectivley which cinema CEOs should be comfortable with seeing.
 
 ### Question/Chart 1 - Bar chart
-The first question addresses sales of movies and is represensted by a bar chart. I have chosen a bar chart due to its simplicty. The bar chart only tells you how much money was made from a movie which is sufficient to give cinema CEOs an undertsanding of the general perfomance of films in cinemas at a given time. No additional information is needed as the questions is about how much money was made and not why. The data required for this bar chart are the weekend gross of movies in the different months.
+The first question addresses sales of movies and is represensted by a bar chart. I have chosen a bar chart due to its simplicty. The bar chart only tells you how much money was made from a movie which is sufficient to give cinema CEOs an undertsanding of the general perfomance of films in cinemas at a given time. No additional information is needed as the questions is about how much money was made and not why. Bar charts use discrete data and therefore answers "how many?" or "how much?" questions [1]. The data required for this bar chart are the weekend gross of movies in the different months.
 
 ### Question/Chart 2 - Histogram
-The second questions addresses the release of movies in cinemas and is representated by a histogram. This type of chart was chosen beacuse it is easy to look at (comparable to a bar chart) but addresses slighlty more information. The bar chart focuses mainly on one variable (sales - weekend gross) but to answer the second question we need to look at how long the since the movies were orignally released and how many of the movies were new. To do this we define new movies as movies that were released within 3 months, recent movies as movies released between 3 and 12 months, and old movies as movies released over 12 months ago. A histogram helps depict this as the new, recent and old movies can be represented by different class size on the histogram. The data required is the number of weeks since the intial release of the films.
+The second questions addresses the release of movies in cinemas and is representated by a histogram. This type of chart was chosen beacuse it is easy to look at (comparable to a bar chart) but addresses slighlty more information. The bar chart focuses mainly on one variable (sales - weekend gross) but to answer the second question we need to look at how long the since the movies were orignally released and how many of the movies were new. This can be subjective but we can define new as being something that is still talked about after being recently being release. Since movie can stay in cinemas from anywhere between 2-24 weeks [2], we can define new movies as movies that were released within 3 months, recent movies as movies released between 3 and 12 months, and old movies as movies released over 12 months ago. A histogram helps depict this as the new, recent and old movies can be represented by different class groups on the histogram. The advantage of a histogram is that it helps to give us an estiamte of where values are concentrate at [3]. The data required is the number of weeks since the intial release of the films.
 
 ### Question/Chart 3 - Pie chart
-The final questions addresses the main movie distributors. This means we take a look at who dominated the movie industry. To show this, a pie chart makes easy to show what portion of films at a given time in cinema were made by a movie distributor. The data required is knowing what distributor made each film that was released in cinema at a given time.
+The final questions addresses the main movie distributors. This means we take a look at who dominated the movie industry. To show this, a pie chart makes easy to show what portion of films at a given time in cinema were made by a movie distributor. Pie charts are very commonly used in businesses [4]. It is also worth mentioning that despite its simplicity and that the pie chart might not be the best chart for comparing individual things, it is more effective when comparing an individual(one slice of the part - in this case a specific distributor) to the whole pie (the whole market)[5]. The data required is knowing what distributor made each film that was released in cinema at a given time.
 
 
 
@@ -39,3 +39,15 @@ The histogram wsa able to display its data claerly. It was simplistic and readab
 
 ### Question/Chart 3 - Pie chart
 The pie chart also worked well. it clearly showed which movie distribtors were making the most movies at a given time. The contrasting colours representing the movie distrutors helped to point out the fraction of the market. But while it was clear to see which movie distributors did the most work, it was a bit hard to read the smallest proportions of the film distributors.To improve this i could group the small fractions together and label them 'other' on the pie chart and then spcify on  table what distributors made up the 'other' section.
+
+## References
+
+[1] Datavizcatalogue.com. 2022. Bar Charts - Learn about this chart and tools to create it. [online] Available at: <https://datavizcatalogue.com/methods/bar_chart.html> [Accessed 2 March 2022].
+
+[2] Exactly How Long. 2022. How Long Do Movies Stay in Theaters – (And Why)?. [online] Available at: <https://exactlyhowlong.com/how-long-do-movies-stay-in-theaters-and-why/> [Accessed 2 March 2022].
+
+[3] Datavizcatalogue.com. 2022. Histogram - Learn about this chart and tools to create it. [online] Available at: <https://datavizcatalogue.com/methods/histogram.html> [Accessed 2 March 2022].
+
+[4] Geographyfieldwork.com. 2022. Data Presentation: Pie Charts. [online] Available at: <https://geographyfieldwork.com/DataPresentationPieCharts.htm> [Accessed 2 March 2022].
+
+[5] Datavizcatalogue.com. 2022. Pie Chart - Learn about this chart and tools to create it. [online] Available at: <https://datavizcatalogue.com/methods/pie_chart.html> [Accessed 2 March 2022].
