@@ -58,7 +58,7 @@ app.layout = html.Div(children=[
 
 def update_output(date):
         
-    updated_df = df[df["Date"] == date]
+    updated_df = df[df["Date"] == date[0]]
 
     fig = px.bar(updated_df, x = "Film", y = "Weekend Gross")
     fig2 = px.pie(updated_df,names= "Distributor" )
