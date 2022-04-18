@@ -14,6 +14,7 @@ class ProductionConfig(Config):
 class DevelopmentConfig(Config):
     database_file = pathlib.Path(__file__).parent.parent.joinpath("data", 'example.sqlite')
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + str(database_file)
+    SQLALCHEMY_ECHO = True
 
 
 class TestingConfig(Config):
