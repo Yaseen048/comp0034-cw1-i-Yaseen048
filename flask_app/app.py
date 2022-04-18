@@ -1,6 +1,7 @@
 from flask_app import create_app
+from flask_app.config import DevelopmentConfig
 
-app = create_app()
+app = create_app(Config.DevelopmentConfig)
 
 
 @app.route('/')
