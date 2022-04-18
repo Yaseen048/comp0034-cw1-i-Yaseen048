@@ -2,7 +2,7 @@
 
 
 class Config(object):
-    pass
+    SECRET_KEY = "xoY23504XqLK35MzQMd1Bw"
 
 
 class ProductionConfig(Config):
@@ -14,4 +14,4 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
-  TESING = True
+    TESING = True
