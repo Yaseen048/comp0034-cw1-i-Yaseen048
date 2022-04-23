@@ -1,6 +1,6 @@
-from flask import Blueprint
+from flask import Blueprint, redirect, url_for
 from flask_app.auth.forms import SignupForm, LoginForm
-from flask import render_template
+from flask import render_template, flash
 
 
 auth_bp = Blueprint('auth', __name__)
@@ -14,7 +14,8 @@ def signup():
     form = SignupForm()
     if form.validate_on_submit():
         name = form.first_name.data
-        return f"Hello, {name}. You are signed up."
+        flash (f"Hello, {name}. You are signed up.")
+        return redirect(url_for('main.index'))
     return render_template('signup.html', title='Sign Up', form=form)
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
