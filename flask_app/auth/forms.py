@@ -1,4 +1,3 @@
-import email
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, EmailField, SubmitField
 from wtforms.validators import DataRequired, EqualTo
@@ -11,6 +10,7 @@ class SignupForm(FlaskForm):
     password_repeat = PasswordField(label='Repeat Password',
                                 validators=[DataRequired(), EqualTo('password', message='Passwords must match')])
                         
+
 
 class LoginForm(FlaskForm):
     email = EmailField(label='Email address', validators=[DataRequired()])

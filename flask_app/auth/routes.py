@@ -1,7 +1,5 @@
-from crypt import methods
-from turtle import title
 from flask import Blueprint
-from flask_app.auth.forms import LoginForm, SignupForm
+from flask_app.auth.forms import SignupForm, LoginForm
 from flask import render_template
 
 
@@ -21,6 +19,6 @@ def signup():
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm
+    form = LoginForm()
     #validation code
     return render_template('login.html', title='Login', form=form)
