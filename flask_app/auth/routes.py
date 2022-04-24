@@ -1,12 +1,11 @@
-from flask import Blueprint, redirect, url_for
-from sqlalchemy import true
+from os import abort
+from flask import Blueprint, render_template, flash, redirect, url_for
+from flask_login import login_required, login_user, logout_user
 from flask_app.auth.forms import SignupForm, LoginForm
-from flask import render_template, flash
+
 from sqlalchemy.exc import IntegrityError
-from flask_app import db
+from flask_app import db, login_manager, request
 from flask_app.models import User
-from flask_app import login_manager
-from flask_app import request
 from urllib.parse import urlparse, urljoin
 
 auth_bp = Blueprint('auth', __name__)
@@ -61,8 +60,16 @@ def login():
     login_form = LoginForm()
     #validation code
     if login_form.validate_on_submit():
-        #user = User(first_name='first_name', last_name='last_name', email=login_form.email.data)
-        #user.set_password(login_form.password.data)
-        flash ("Hello, You are logged in.")
+        user = User.query.filter_by(email=login_form.email.data).first()
+        login_user(user)
+        next = request.args.get("next")
+        if not is_safe_url(next):
+            return abort(400)
         return redirect(url_for('main.index'))
     return render_template('login.html', title='Login', form=login_form)
+
+@auth_bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("main.index"))
