@@ -5,10 +5,35 @@ from flask import render_template, flash
 from sqlalchemy.exc import IntegrityError
 from flask_app import db
 from flask_app.models import User
-
-
+from flask_app import login_manager
+from flask_app import request
+from urllib.parse import urlparse, urljoin
 
 auth_bp = Blueprint('auth', __name__)
+
+@login_manager.user_loader
+def load_user(user_id):
+    """ Takes a user ID and returns a user object or None if the user does not exist"""
+    if user_id is not None:
+        return User.query.get(user_id)
+    return None
+
+def is_safe_url(target):
+    host_url = urlparse(request.host_url)
+    redirect_url = urlparse(urljoin(request.host_url, target))
+    return redirect_url.scheme in ('http', 'https') and host_url.netloc == redirect_url.netloc
+
+
+def get_safe_redirect():
+    url = request.args.get('next')
+    if url and is_safe_url(url):
+        return url
+    url = request.referrer
+    if url and is_safe_url(url):
+        return url
+    return '/'
+
+
 
 @auth_bp.route('/auth')
 def index():
