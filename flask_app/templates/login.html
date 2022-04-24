@@ -7,4 +7,11 @@
         {{ form.password.label }} {{ form.password() }} <br>
         <input type="submit" value="Login in">
     </form>
+
+    {# Display the form validation errors #}
+    {% for field, errors in form.errors.items() %}
+        <div class="alert alert-error">
+            {{ form[field].label }}: {{ ', '.join(errors) }}
+        </div>
+    {% endfor %}
 {%endblock%}

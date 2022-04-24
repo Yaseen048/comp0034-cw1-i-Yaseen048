@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, url_for
+from sqlalchemy import true
 from flask_app.auth.forms import SignupForm, LoginForm
 from flask import render_template, flash
 from sqlalchemy.exc import IntegrityError
@@ -32,8 +33,11 @@ def signup():
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+    login_form = LoginForm()
     #validation code
-    if form.validate_on_submit():
+    if login_form.validate_on_submit():
+        #user = User(first_name='first_name', last_name='last_name', email=login_form.email.data)
+        #user.set_password(login_form.password.data)
+        flash ("Hello, You are logged in.")
         return redirect(url_for('main.index'))
-    return render_template('login.html', title='Login', form=form)
+    return render_template('login.html', title='Login', form=login_form)
