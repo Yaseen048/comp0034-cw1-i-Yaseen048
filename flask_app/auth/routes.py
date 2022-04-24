@@ -34,4 +34,6 @@ def signup():
 def login():
     form = LoginForm()
     #validation code
+    if form.validate_on_submit():
+        return redirect(url_for('main.index'))
     return render_template('login.html', title='Login', form=form)

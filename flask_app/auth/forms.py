@@ -18,11 +18,15 @@ class SignupForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     email = EmailField(label='Email address', validators=[DataRequired()])
-    password = PasswordField(label='Password', validators=[DataRequired()])
+    form_password = PasswordField(label='Password', validators=[DataRequired()])
     submit = SubmitField('Login in')
 
-    def validate_login(self, email):
+    def validate_login_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is None:
             raise ValidationError('This email is not registered')
-        
+    
+    def validate_login_password(self, email, form_password):
+        user = User.query.filter_by(email=email.data).first()
+        if not user.check_password(form_password):
+            raise ValidationError('Incorrect Password')
