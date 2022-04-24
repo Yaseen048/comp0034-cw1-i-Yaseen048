@@ -1,3 +1,4 @@
+import imp
 from flask import Flask
 from flask_wtf.csrf import CSRFProtect
 from flask_sqlalchemy import SQLAlchemy
@@ -16,6 +17,11 @@ def create_app(config_class_name):
     csrf.init_app(app)
     db.init_app(app)
 
+    with app.app_context():
+        from flask_app.models import User
+        db.create_all()
+
+    
     from flask_app.main.routes import main_bp
     app.register_blueprint(main_bp)
 
