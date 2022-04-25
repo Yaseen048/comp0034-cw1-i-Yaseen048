@@ -46,6 +46,15 @@ The histogram wsa able to display its data claerly. It was simplistic and readab
 ### Question/Chart 3 - Pie chart
 The pie chart also worked well. it clearly showed which movie distribtors were making the most movies at a given time. The contrasting colours representing the movie distrutors helped to point out the fraction of the market. But while it was clear to see which movie distributors did the most work, it was a bit hard to read the smallest proportions of the film distributors.To improve this i could group the small fractions together and label them 'other' on the pie chart and then spcify on  table what distributors made up the 'other' section.
 
+# COMP0035 coursework 2
+
+## Repository URL
+
+[Repository](https://github.com/ucl-comp0035/comp0034-cw1-i-Yaseen048.git)
+
+## aditional feature
+
+For my flask web app, I made a chat feature. The chat feature can only be accessed by logged in users. The chat feature allows a user to enter a message in a form and then post it. The message is displayed with the name of the user also shown on the page.
 ## References
 
 [1] Datavizcatalogue.com. 2022. Bar Charts - Learn about this chart and tools to create it. [online] Available at: <https://datavizcatalogue.com/methods/bar_chart.html> [Accessed 2 March 2022].
