@@ -9,13 +9,16 @@
     {% for uploaded_message in uploaded_messages %}
         <div class="chat">
             <p class= "posted-message">
-                <strong>{{uploaded_message.first_name}}</strong>
+                <strong>{{uploaded_message.user.first_name}}</strong><br/>
                 {{uploaded_message.message_text}}<br/>
             </p>
-            <br/>
         </div>
             
         </p>
+        <br/>
     {%endfor%}
+        
+    <a href="{{url_for('chat.message')}}">Post a new message</a>
+
 
 {% endblock %}
