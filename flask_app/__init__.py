@@ -31,4 +31,7 @@ def create_app(config_class_name):
     from flask_app.auth.routes import auth_bp
     app.register_blueprint(auth_bp)
 
+    from flask_app.chat.routes import chat_bp
+    app.register_blueprint(chat_bp)
+
     return app
