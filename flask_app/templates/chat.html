@@ -2,6 +2,20 @@
 
 {% block content %}
     <h1>{{ title }}</h1>
-    <p>This is the chat page.</p>
-    <p>Here you can write and have discussions about cinemas in the UK </p>
+    <p>This is the chat page.<br>
+    Here you can write and have discussions about cinemas in the UK with other users </p>
+    <br>
+
+    {% for uploaded_message in uploaded_messages %}
+        <div class="chat">
+            <p class= "posted-message">
+                <strong>{{uploaded_message.first_name}}</strong>
+                {{uploaded_message.message_text}}<br/>
+            </p>
+            <br/>
+        </div>
+            
+        </p>
+    {%endfor%}
+
 {% endblock %}
