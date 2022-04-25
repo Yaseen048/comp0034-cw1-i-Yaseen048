@@ -9,7 +9,9 @@
     {% for uploaded_message in uploaded_messages %}
         <div class="chat">
             <p class= "posted-message">
-                <strong>{{uploaded_message.user.first_name}}</strong><br/>
+                <strong>
+                    {{uploaded_message.user.first_name}} {{uploaded_message.user.last_name}}
+                </strong><br/>
                 {{uploaded_message.message_text}}<br/>
             </p>
         </div>

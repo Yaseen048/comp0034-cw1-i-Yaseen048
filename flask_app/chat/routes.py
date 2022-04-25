@@ -22,18 +22,9 @@ def load_user(user_id):
 @login_required
 def view():
     uploaded_messages = Message.query.all()
-    
-    name_list= []
-    for name in uploaded_messages:
-        name_list.append(User.query.filter_by(id = name.author_id))
-    '''name_list = []
-    for name in uploaded_messages:
-        name_list = 
-        name_list.append(User.query.filter_by())'''
 
-    
-    return render_template('chat.html', title = 'chat', uploaded_messages = uploaded_messages, 
-    name_list = name_list )
+    return render_template('chat.html', title = 'chat', 
+        uploaded_messages = uploaded_messages)
 
 @chat_bp.route('/message', methods = ['GET', 'POST'])
 @login_required
