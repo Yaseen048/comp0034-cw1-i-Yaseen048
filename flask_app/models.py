@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.Text, nullable=False)
     email = db.Column(db.Text, unique=True, nullable=False)
     password = db.Column(db.Text, nullable=False)
+    messages = db.relationship("Message", backref = db.backref('user'))
 
     def __repr__(self):
         return f"{self.id} {self.first_name} {self.last_name} {self.email} {self.password}"
@@ -18,3 +19,12 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+class Message(UserMixin, db.Model):
+    __tablename__ = "message"
+    message_id = db.Column(db.Integer, primary_key =True)
+    author_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    message_text = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return '<Message %r>' % self.message_text
