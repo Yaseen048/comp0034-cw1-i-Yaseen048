@@ -23,7 +23,7 @@ class User(UserMixin, db.Model):
 class Message(UserMixin, db.Model):
     __tablename__ = "message"
     message_id = db.Column(db.Integer, primary_key =True)
-    author_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     message_text = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
