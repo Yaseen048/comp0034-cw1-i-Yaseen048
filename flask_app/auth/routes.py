@@ -1,10 +1,11 @@
-from os import abort
+from flask import abort
+from flask import request
 from flask import Blueprint, render_template, flash, redirect, url_for
 from flask_login import login_required, login_user, logout_user
 from flask_app.auth.forms import SignupForm, LoginForm
 
 from sqlalchemy.exc import IntegrityError
-from flask_app import db, login_manager, request
+from flask_app import db, login_manager
 from flask_app.models import User
 from urllib.parse import urlparse, urljoin
 

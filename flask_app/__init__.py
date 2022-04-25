@@ -5,7 +5,7 @@ from flask_login import LoginManager
 
 csrf = CSRFProtect()
 db = SQLAlchemy()
-Login_manager = LoginManager()
+login_manager = LoginManager()
 
 def create_app(config_class_name):
     """
@@ -17,8 +17,8 @@ def create_app(config_class_name):
     app.config.from_object(config_class_name)
     csrf.init_app(app)
     db.init_app(app)
-    Login_manager.init_app(app)
-    Login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'
 
     with app.app_context():
         from flask_app.models import User
