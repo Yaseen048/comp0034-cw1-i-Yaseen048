@@ -1,8 +1,9 @@
 from dash import Output, Input
 import pandas as pd
 import plotly.express as px
+import flask_app
 
-df = pd.read_csv("Prepared_dataset.csv", dtype = {'Weekend Gross': int,
+df = pd.read_csv("flask_app\cinema_dash_app\Prepared_dataset.csv", dtype = {'Weekend Gross': int,
 "Weeks on release": int})
 
 def register_callbacks(dash_app):
